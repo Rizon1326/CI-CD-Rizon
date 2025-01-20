@@ -4,7 +4,7 @@ const app = express();
 // Simple route for the root
 app.get('/', (req, res) => {
   res.json({
-    msg: 'Hello World!',
+    msg: 'Hello World Rizon',
     app_version: '1'
   });
 });

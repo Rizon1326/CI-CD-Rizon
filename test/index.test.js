@@ -6,7 +6,7 @@ it('should return Hello World message and app version', async () => {
   const res = await request(app).get('/');
   expect(res.statusCode).toBe(200);
   expect(res.body).toEqual({ 
-    msg: 'Hello World!', 
+    msg: 'Hello World Rizon', 
     app_version: '1' 
   });
 });
