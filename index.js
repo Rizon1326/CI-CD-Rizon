@@ -4,25 +4,22 @@ const app = express();
 // Simple route for the root
 app.get('/', (req, res) => {
   res.json({
-    msg: 'Hello World Rizon',
-    app_version: '1'
+    msg: 'Hello World Rizon String Concatenation Service',
+    app_version: '1.2'
   });
 });
 
-app.get('/add/:a/:b', (req, res) => {
-  const { a, b } = req.params;
-  const sum = add(a, b);
-  res.json({ sum });
+app.get('/concat/:str1/:str2', (req, res) => {
+  const { str1, str2 } = req.params;
+  const result = concatenate(str1, str2);
+  res.json({ result });
 });
 
-function add(a, b) {
-  if (isNaN(a) || isNaN(b)) {
+function concatenate(str1, str2) {
+  if (typeof str1 !== 'string' || typeof str2 !== 'string') {
     return "Invalid Input";
   }
-
-  a = parseInt(a);
-  b = parseInt(b);
-  return a + b;
+  return str1 + str2;
 }
 
 if (require.main === module) {
@@ -31,6 +28,5 @@ if (require.main === module) {
   });
 }
 
-
 module.exports = app;
-module.exports.add = add;
+module.exports.concatenate = concatenate;
